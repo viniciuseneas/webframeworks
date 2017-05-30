@@ -32,4 +32,4 @@ MySQL
 
 License
 
-- GNU
+- GPL

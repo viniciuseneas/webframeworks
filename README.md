@@ -2,37 +2,34 @@
 
 Projeto para a Pós Graduação Desenvolvimento de Aplicações para WEB Webframeworks
 
-Autores
+### Autores
 
-*Vinícius Enéas Bezerra
+-Vinícius Enéas Bezerra
 
-*Jafet Gomes
+-Jafet Gomes
 
-*Nélio Frazão
+-Nélio Frazão
 
-Tecnologias Back-End
+### Tecnologias
+| Back-End | Front-End |
+| ------ | ------ |
+| Spring Boot | Thymeleaf |
+| Spring MVC | Bootstrap |
+| Spring Security| HTML5 |
+| Spring Core | CSS3 |
+| Spring ORM | JQuery |
+| Hibernate |
+| JSP |
+| JPA |
 
-Spring Boot
-Spring MVC
-Spring Security
-Spring Core
-Spring ORM
-Hibernate
-JSP
-JPA
-
-Tecnologias Front-End
-
-Thymeleaf
-Bootstrap
-HTML5
-CSS3
-JQuery
-
-Tecnologias Controle de Dependências
+### Tecnologias Controle de Dependências
 
 Maven
 
-Tecnologias Banco de Dados
+### Tecnologias Banco de Dados
 
 MySQL
+
+License
+
+- GNU

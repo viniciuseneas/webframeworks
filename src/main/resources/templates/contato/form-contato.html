@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head th:replace="fragments/commom_header :: commonHeader"></head>
+<body>
+	<nav th:replace="fragments/header :: header"></nav>
+	<div id="main" class="container">
+		<div class="row">
+			<h3 class="page-header">Cadastrar Contato</h3>
+			<form class="form-horizontal" th:object="${post}"
+				th:action="@{/contato/incluir}" method="POST">
+				<hr />
+				<div class="form-group">
+					<label for="inputNome" class="col-lg-2 control-label">Nome</label>
+					<div class="col-lg-10">
+						<input class="form-control" id="inputNome" placeholder="Nome"
+							type="text" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputSobrenome" class="col-lg-2 control-label">Sobrenome</label>
+					<div class="col-lg-10">
+						<input class="form-control" id="inputSobrenome"
+							placeholder="Sobrenome" type="text" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputEmail" class="col-lg-2 control-label">Email</label>
+					<div class="col-lg-10">
+						<input class="form-control" id="inputEmail" placeholder="Email"
+							type="email" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputIdade" class="col-lg-2 control-label">Idade</label>
+					<div class="col-lg-10">
+						<input class="form-control" id="inputIdade" placeholder="Idade"
+							type="text" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputTelefone" class="col-lg-2 control-label">Telefone</label>
+					<div class="col-lg-10">
+						<input class="form-control" id="inputTelefone"
+							placeholder="Telefone" type="text" />
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-lg-10 col-lg-offset-2">
+						<a href="" th:href="@{/contato/listar}" class="btn btn-danger">Voltar</a>
+						<button type="submit" class="btn btn-primary">Enviar</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

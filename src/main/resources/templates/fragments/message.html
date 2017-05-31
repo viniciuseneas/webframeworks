@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head th:replace="fragments/commom_header :: commonHeader"></head>
+<body>
+	<div class="alert alert-dismissable"
+		th:fragment="alert (type, message)"
+		th:assert="${!#strings.isEmpty(type) and !#strings.isEmpty(message)}"
+		th:classappend="'alert-' + ${type}">
+		<button type="button" class="close" data-dismiss="alert"
+			aria-hidden="true">&times;</button>
+		<span th:text="${message}"></span>
+	</div>
+	<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

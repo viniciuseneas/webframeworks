@@ -7,41 +7,41 @@
 	<div id="main" class="container">
 		<div class="row">
 			<h3 class="page-header">Cadastrar Contato</h3>
-			<form class="form-horizontal" th:object="${post}"
-				th:action="@{/contato/incluir}" method="POST">
+			<form class="form-horizontal" th:action="@{/contato/incluir}"
+				method="POST">
 				<hr />
 				<div class="form-group">
 					<label for="inputNome" class="col-lg-2 control-label">Nome</label>
 					<div class="col-lg-10">
-						<input class="form-control" id="inputNome" placeholder="Nome"
+						<input class="form-control" id="inputNome" name="nome" placeholder="Nome"
 							type="text" />
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="inputSobrenome" class="col-lg-2 control-label">Sobrenome</label>
 					<div class="col-lg-10">
-						<input class="form-control" id="inputSobrenome"
+						<input class="form-control" id="inputSobrenome" name="sobrenome"
 							placeholder="Sobrenome" type="text" />
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="inputEmail" class="col-lg-2 control-label">Email</label>
 					<div class="col-lg-10">
-						<input class="form-control" id="inputEmail" placeholder="Email"
+						<input class="form-control" id="inputEmail" name="email" placeholder="Email"
 							type="email" />
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="inputIdade" class="col-lg-2 control-label">Idade</label>
 					<div class="col-lg-10">
-						<input class="form-control" id="inputIdade" placeholder="Idade"
+						<input class="form-control" id="inputIdade" name="idade" placeholder="Idade"
 							type="text" />
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="inputTelefone" class="col-lg-2 control-label">Telefone</label>
 					<div class="col-lg-10">
-						<input class="form-control" id="inputTelefone"
+						<input class="form-control" id="inputTelefone" name="telefone"
 							placeholder="Telefone" type="text" />
 					</div>
 				</div>

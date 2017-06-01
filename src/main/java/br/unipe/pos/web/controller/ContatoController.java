@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.unipe.pos.web.dao.ContatoDAO;
 import br.unipe.pos.web.model.ContatoModel;
@@ -39,13 +39,11 @@ public class ContatoController {
 	}
 
 	@RequestMapping(value = "incluir", method = RequestMethod.POST)
-	@ResponseBody
-	public String salvar(@Valid ContatoModel contato, Model model, BindingResult result) {
+	public String salvar(@Valid @ModelAttribute("contato") ContatoModel contato, BindingResult result, Model model) {
 
 		if (result.hasErrors()) {
 			return "contato/form-contato";
 		}
-		
 		if (repositorio.save(contato) == null) {
 
 			model.addAttribute("type", "error");

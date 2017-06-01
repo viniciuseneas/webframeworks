@@ -8,41 +8,40 @@
 		<div class="row">
 			<h3 class="page-header">Cadastrar Contato</h3>
 			<form class="form-horizontal" th:action="@{/contato/incluir}"
-				method="POST">
-				<hr />
+				th:object="${contato}" method="POST">
 				<div class="form-group">
-					<label for="inputNome" class="col-lg-2 control-label">Nome</label>
+					<label for="nome" class="col-lg-2 control-label">Nome</label>
 					<div class="col-lg-10">
-						<input class="form-control" id="inputNome" name="nome" placeholder="Nome"
-							type="text" />
+						<input class="form-control" placeholder="Nome" id="nome" name="nome"
+							type="text" required="required" />
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="inputSobrenome" class="col-lg-2 control-label">Sobrenome</label>
+					<label for="sobreNome" class="col-lg-2 control-label">Sobrenome</label>
 					<div class="col-lg-10">
-						<input class="form-control" id="inputSobrenome" name="sobrenome"
-							placeholder="Sobrenome" type="text" />
+						<input class="form-control"  id="sobreNome" name="sobreNome"
+							placeholder="Sobrenome" type="text" required="required" />
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="inputEmail" class="col-lg-2 control-label">Email</label>
+					<label for="email" class="col-lg-2 control-label">Email</label>
 					<div class="col-lg-10">
-						<input class="form-control" id="inputEmail" name="email" placeholder="Email"
-							type="email" />
+						<input class="form-control"  id="email" name="email"
+							placeholder="Email" type="email" required="required" />
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="inputIdade" class="col-lg-2 control-label">Idade</label>
+					<label for="idade" class="col-lg-2 control-label">Idade</label>
 					<div class="col-lg-10">
-						<input class="form-control" id="inputIdade" name="idade" placeholder="Idade"
-							type="text" />
+						<input class="form-control"  id="idade" name="idade"
+							placeholder="Idade" type="text" required="required" />
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="inputTelefone" class="col-lg-2 control-label">Telefone</label>
+					<label for="telefone" class="col-lg-2 control-label">Telefone</label>
 					<div class="col-lg-10">
-						<input class="form-control" id="inputTelefone" name="telefone"
-							placeholder="Telefone" type="text" />
+						<input class="form-control"  id="telefone" name="telefone"
+							placeholder="Telefone" type="text" required="required" />
 					</div>
 				</div>
 				<div class="form-group">

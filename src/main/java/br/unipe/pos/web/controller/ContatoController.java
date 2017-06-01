@@ -53,7 +53,7 @@ public class ContatoController {
 		model.addAttribute("type", "success");
 		model.addAttribute("message", "Cadastrado com sucesso!");
 
-		return "redirect:contato/list";
+		return "redirect:contato/listar";
 
 	}
 
@@ -76,7 +76,7 @@ public class ContatoController {
 		contatoService.delete(id);
 		model.addAttribute("success", "Cadastrado com sucesso!");
 
-		return "redirect:/contato/list";
+		return "redirect:/contato/listar";
 
 	}
 

@@ -11,11 +11,11 @@
 			th:replace="fragments/message :: message (type='success', message=${message})"></div>
 		<div id="top" class="row">
 			<div class="col-md-10">
-				<h1>Listar Contato</h1>
+				<h1>Listar Usuário</h1>
 			</div>
 			<div class="col-md-2">
-				<a href="" th:href="@{/contato/incluir}"
-					class="btn btn-primary pull-right h2">Novo Contato</a>
+				<a href="" th:href="@{/usuario/incluir}"
+					class="btn btn-primary pull-right h2">Novo Usuário</a>
 			</div>
 		</div>
 		<hr />
@@ -27,26 +27,20 @@
 						<tr>
 							<th>ID</th>
 							<th>Nome</th>
-							<th>Sobrenome</th>
 							<th>E-mail</th>
-							<th>Idade</th>
-							<th>Telefone</th>
 							<th th:align="center">Ações</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="contato : ${contatos}">
-							<td th:text="${contato.id}"></td>
-							<td th:text="${contato.nome}"></td>
-							<td th:text="${contato.sobreNome}"></td>
-							<td th:text="${contato.email}"></td>
-							<td th:text="${contato.idade}"></td>
-							<td th:text="${contato.telefone}"></td>
+						<tr th:each="usuario : ${usuarios}">
+							<td th:text="${usuario.id}"></td>
+							<td th:text="${usuario.nome}"></td>
+							<td th:text="${usuario.email}"></td>
 							<td th:align="center"><a href=""
-								th:href="@{/contato/editar/(id=${contato.id})}"
+								th:href="@{/usuario/editar/(id=${usuario.id})}"
 								class="btn btn-box-tool bg-blue" title="Visualizar"
 								data-toggle="tooltip"> <i class="glyphicon glyphicon-edit"></i>
-							</a> <a href="" th:href="@{/contato/excluir/(id=${contato.id})}"
+							</a> <a href="" th:href="@{/usuario/excluir/(id=${usuario.id})}"
 								class="btn btn-box-tool bg-red" data-toggle="tooltip"
 								title="Excluir"
 								onclick="return confirm('Tem certeza que deseja excluir?')">

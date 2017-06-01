@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head th:replace="fragments/commom_header :: commonHeader"></head>
+<body>
+	<nav th:replace="fragments/header :: header"></nav>
+	<div id="main" class="container">
+		<div class="row">
+			<h3 class="page-header">Cadastrar Usuário</h3>
+			<form class="form-horizontal" th:action="@{/usuario/incluir}"
+				th:object="${usuario}" method="POST">
+				<div class="form-group">
+					<label for="nome" class="col-lg-2 control-label">Nome</label>
+					<div class="col-lg-10">
+						<input class="form-control" placeholder="Nome" id="nome" name="nome"
+							type="text" required="required" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="email" class="col-lg-2 control-label">Email</label>
+					<div class="col-lg-10">
+						<input class="form-control"  id="email" name="email"
+							placeholder="Email" type="email" required="required" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="senha" class="col-lg-2 control-label">Senha</label>
+					<div class="col-lg-10">
+						<input class="form-control"  id="senha" name="senha"
+							placeholder="Idade" type="password" required="required" />
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-lg-10 col-lg-offset-2">
+						<a href="" th:href="@{/usuario/listar}" class="btn btn-danger">Voltar</a>
+						<button type="submit" class="btn btn-primary">Enviar</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

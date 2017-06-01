@@ -7,7 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "tb_contato")
@@ -15,21 +17,28 @@ public class ContatoModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
 	private int id;
 	@Column(name = "nome", nullable = false)
-	@NotBlank(message = "Nome é uma informação obrigatória.")
+	@NotBlank(message = "*Nome é uma informação obrigatória.")
+	@NotEmpty(message = "*Nome é uma informação obrigatória.")
 	private String nome;
 	@Column(name = "sobrenome", nullable = false)
-	@NotBlank(message = "Sobrenome é uma informação obrigatória.")
+	@NotBlank(message = "*Sobrenome é uma informação obrigatória.")
+	@NotEmpty(message = "*Sobrenome é uma informação obrigatória.")
 	private String sobreNome;
 	@Column(name = "telefone", nullable = false)
-	@NotBlank(message = "Telefone é uma informação obrigatória.")
+	@NotBlank(message = "*Telefone é uma informação obrigatória.")
+	@NotEmpty(message = "*Telefone é uma informação obrigatória.")
 	private String telefone;
 	@Column(name = "email", nullable = false)
-	@NotBlank(message = "Email é uma informação obrigatória.")
+	@Email(message = "*Informe um E-mail valido")
+	@NotBlank(message = "*Email é uma informação obrigatória.")
+	@NotEmpty(message = "*Email é uma informação obrigatória.")
 	private String email;
 	@Column(name = "idade", nullable = false)
-	@NotBlank(message = "Idade é uma informação obrigatória.")
+	@NotBlank(message = "*Idade é uma informação obrigatória.")
+	@NotEmpty(message = "*Idade é uma informação obrigatória.")
 	private int idade;
 
 	/**

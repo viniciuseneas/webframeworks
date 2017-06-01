@@ -12,7 +12,7 @@ import br.unipe.pos.web.model.ContatoModel;
 public class ContatoService implements ContatoServiceInterface {
 
 	@Autowired
-	private ContatoDAO repositorio;
+	private ContatoDAO contatoDAO;
 
 	/**
 	 * Listar todos
@@ -20,7 +20,7 @@ public class ContatoService implements ContatoServiceInterface {
 	@Override
 	public List<ContatoModel> findAll() {
 
-		List<ContatoModel> contato = repositorio.findAll();
+		List<ContatoModel> contato = contatoDAO.findAll();
 
 		return contato;
 	}
@@ -31,7 +31,7 @@ public class ContatoService implements ContatoServiceInterface {
 	@Override
 	public void save(ContatoModel contato) {
 
-		repositorio.save(contato);
+		contatoDAO.save(contato);
 	}
 
 	/**
@@ -39,7 +39,7 @@ public class ContatoService implements ContatoServiceInterface {
 	 */
 	@Override
 	public void delete(int id) {
-		repositorio.delete(id);
+		contatoDAO.delete(id);
 	}
 
 	/**
@@ -48,7 +48,7 @@ public class ContatoService implements ContatoServiceInterface {
 	@Override
 	public ContatoModel findOne(int id) {
 
-		ContatoModel contato = repositorio.findOne(id);
+		ContatoModel contato = contatoDAO.findOne(id);
 
 		return contato;
 	}

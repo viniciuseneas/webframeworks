@@ -12,12 +12,12 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name = "tb_contato")
+@Table(name = "contato")
 public class ContatoModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
+	@Column(name = "contact_id")
 	private int id;
 	@Column(name = "nome", nullable = false)
 	@NotBlank(message = "*Nome é uma informação obrigatória.")

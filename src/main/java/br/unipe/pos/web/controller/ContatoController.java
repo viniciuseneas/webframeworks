@@ -21,12 +21,12 @@ import br.unipe.pos.web.service.ContatoService;
 public class ContatoController {
 
 	@Autowired
-	private ContatoService repositorio;
+	private ContatoService contatoService;
 
 	@RequestMapping("listar")
 	public String index(Model model) {
 
-		List<ContatoModel> contatos = repositorio.findAll();
+		List<ContatoModel> contatos = contatoService.findAll();
 
 		model.addAttribute("contatos", contatos);
 
@@ -48,7 +48,7 @@ public class ContatoController {
 
 			return "contato/form-contato";
 		}
-		repositorio.save(contato);
+		contatoService.save(contato);
 
 		model.addAttribute("type", "success");
 		model.addAttribute("message", "Cadastrado com sucesso!");
@@ -60,7 +60,7 @@ public class ContatoController {
 	@RequestMapping("consultar/{id}")
 	public String consultar(@PathVariable(name = "id") int id) {
 
-		ContatoModel contato = repositorio.findOne(id);
+		ContatoModel contato = contatoService.findOne(id);
 
 		if (contato != null) {
 			return contato.toString();
@@ -73,7 +73,7 @@ public class ContatoController {
 	@RequestMapping("remover/{id}")
 	public String remover(@PathVariable(name = "id") int id, Model model) {
 
-		repositorio.delete(id);
+		contatoService.delete(id);
 		model.addAttribute("success", "Cadastrado com sucesso!");
 
 		return "redirect:/contato/list";
@@ -81,18 +81,17 @@ public class ContatoController {
 	}
 
 	/**
-	 * @return the repositorio
+	 * @return the contatoService
 	 */
-	public ContatoService getRepositorio() {
-		return repositorio;
+	public ContatoService getContatoService() {
+		return contatoService;
 	}
 
 	/**
-	 * @param repositorio
-	 *            the repositorio to set
+	 * @param contatoService
+	 *            the contatoService to set
 	 */
-	public void setRepositorio(ContatoService repositorio) {
-		this.repositorio = repositorio;
+	public void setContatoService(ContatoService contatoService) {
+		this.contatoService = contatoService;
 	}
-
 }

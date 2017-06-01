@@ -8,12 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user_profile")
+@Table(name = "roles")
 public class RoleModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
+	@Column(name = "role_id")
 	private int id;
 	@Column(name = "type")
 	private String role;

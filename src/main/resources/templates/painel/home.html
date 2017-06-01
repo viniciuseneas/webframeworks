@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head th:replace="fragments/commom_header :: commonHeader"></head>
 <body>
-
+	<nav th:replace="fragments/header :: header"></nav>
+	<div class="container">
+		<div id="list" class="row">
+		<div class="jumbotron">
+		<h1>Bem vindo ao Painel Adminstrativo</h1>
+		</div>
+		</div>
+	</div>
+	<footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>

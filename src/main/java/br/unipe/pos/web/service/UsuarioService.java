@@ -17,9 +17,9 @@ import br.unipe.pos.web.model.UsuarioModel;
 public class UsuarioService implements UsuarioServiceInterface {
 
 	@Autowired
-	private UsuarioDAO usuarioRepository;
+	private UsuarioDAO usuarioDAO;
 	@Autowired
-	private RoleDAO roleRepository;
+	private RoleDAO roleDAO;
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -32,7 +32,7 @@ public class UsuarioService implements UsuarioServiceInterface {
 	 */
 	@Override
 	public UsuarioModel findUserByEmail(String email) {
-		return usuarioRepository.findByEmail(email);
+		return usuarioDAO.findByEmail(email);
 	}
 
 	/*
@@ -43,7 +43,7 @@ public class UsuarioService implements UsuarioServiceInterface {
 	@Override
 	public List<UsuarioModel> findAll() {
 
-		List<UsuarioModel> usuario = usuarioRepository.findAll();
+		List<UsuarioModel> usuario = usuarioDAO.findAll();
 
 		return usuario;
 	}
@@ -60,9 +60,9 @@ public class UsuarioService implements UsuarioServiceInterface {
 
 		usuario.setSenha(bCryptPasswordEncoder.encode(usuario.getSenha()));
 
-		RoleModel role = roleRepository.findByRole("ADMIN");
+		RoleModel role = roleDAO.findByRole("ADMIN");
 		usuario.setRoles(new HashSet<RoleModel>(Arrays.asList(role)));
-		usuarioRepository.save(usuario);
+		usuarioDAO.save(usuario);
 	}
 
 	/*
@@ -72,7 +72,7 @@ public class UsuarioService implements UsuarioServiceInterface {
 	 */
 	@Override
 	public void delete(int id) {
-		usuarioRepository.delete(id);
+		usuarioDAO.delete(id);
 	}
 
 	/*
@@ -83,7 +83,7 @@ public class UsuarioService implements UsuarioServiceInterface {
 	@Override
 	public UsuarioModel findOne(int id) {
 
-		UsuarioModel usuario = usuarioRepository.findOne(id);
+		UsuarioModel usuario = usuarioDAO.findOne(id);
 
 		return usuario;
 	}

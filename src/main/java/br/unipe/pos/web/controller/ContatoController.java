@@ -33,8 +33,12 @@ public class ContatoController {
 		return "contato/listar";
 	}
 
-	@RequestMapping("incluir")
-	public String incluir() {
+	@RequestMapping(value = "incluir", method = RequestMethod.GET)
+	public String incluir(Model model) {
+
+		ContatoModel contato = new ContatoModel();
+
+		model.addAttribute("contato", contato);
 
 		return "contato/form-contato";
 	}
@@ -44,7 +48,7 @@ public class ContatoController {
 
 		if (result.hasErrors()) {
 			model.addAttribute("type", "error");
-			model.addAttribute("message", "Erro ao tentar cadastrar!");
+			model.addAttribute("errorMessage", "Erro ao tentar cadastrar!");
 
 			return "contato/form-contato";
 		}
@@ -58,7 +62,7 @@ public class ContatoController {
 	}
 
 	@RequestMapping("consultar/{id}")
-	public String consultar(@PathVariable(name = "id") int id) {
+	public String consultar(@PathVariable(name = "id") Integer id) {
 
 		ContatoModel contato = contatoService.findOne(id);
 
@@ -71,7 +75,7 @@ public class ContatoController {
 	}
 
 	@RequestMapping("remover/{id}")
-	public String remover(@PathVariable(name = "id") int id, Model model) {
+	public String remover(@PathVariable(name = "id") Integer id, Model model) {
 
 		contatoService.delete(id);
 		model.addAttribute("success", "Cadastrado com sucesso!");

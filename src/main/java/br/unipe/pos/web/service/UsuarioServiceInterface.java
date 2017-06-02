@@ -12,8 +12,8 @@ public interface UsuarioServiceInterface {
 
 	public void save(UsuarioModel usuario);
 
-	public void delete(int id);
+	public void delete(Integer id);
 
-	public UsuarioModel findOne(int id);
+	public UsuarioModel findOne(Integer id);
 
 }

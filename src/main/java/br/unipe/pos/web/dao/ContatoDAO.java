@@ -12,8 +12,8 @@ public interface ContatoDAO extends JpaRepository<ContatoModel, Integer> {
 	
 	List<ContatoModel> findAll();
 
-	void delete(int id);
+	void delete(Integer id);
 
-	ContatoModel findOne(int id);
+	ContatoModel findOne(Integer id);
 
 }

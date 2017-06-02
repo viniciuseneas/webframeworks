@@ -23,20 +23,20 @@ import org.springframework.data.annotation.Transient;
 public class UsuarioModel {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
-	private int id;
-	@Column(name = "email")
+	private Integer id;
 	@Email(message = "*Informe um E-mail valido")
 	@NotEmpty(message = "*E-mail é obrigatório")
+	@Column(name = "email")
 	private String email;
-	@Column(name = "nome")
 	@NotEmpty(message = "*Nome é obrigatório")
+	@Column(name = "nome")
 	private String nome;
-	@Column(name = "senha")
 	@Length(min = 5, message = "*Até 5 caracteres")
 	@NotEmpty(message = "*Senha é obrigatório")
 	@Transient
+	@Column(name = "senha")
 	private String senha;
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_has_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -45,7 +45,7 @@ public class UsuarioModel {
 	/**
 	 * @return the id
 	 */
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -53,7 +53,7 @@ public class UsuarioModel {
 	 * @param id
 	 *            the id to set
 	 */
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

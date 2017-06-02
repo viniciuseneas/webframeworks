@@ -1,5 +1,7 @@
 package br.unipe.pos.web.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,38 +15,40 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "contato")
-public class ContatoModel {
+public class ContatoModel implements Serializable {
+	
+	public static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "contact_id")
-	private int id;
-	@Column(name = "nome", nullable = false)
+	private Integer id;
 	@NotBlank(message = "*Nome é uma informação obrigatória.")
 	@NotEmpty(message = "*Nome é uma informação obrigatória.")
+	@Column(name = "nome", nullable = false)
 	private String nome;
-	@Column(name = "sobrenome", nullable = false)
 	@NotBlank(message = "*Sobrenome é uma informação obrigatória.")
 	@NotEmpty(message = "*Sobrenome é uma informação obrigatória.")
+	@Column(name = "sobrenome", nullable = false)
 	private String sobreNome;
-	@Column(name = "telefone", nullable = false)
 	@NotBlank(message = "*Telefone é uma informação obrigatória.")
 	@NotEmpty(message = "*Telefone é uma informação obrigatória.")
+	@Column(name = "telefone", nullable = false)
 	private String telefone;
-	@Column(name = "email", nullable = false)
 	@Email(message = "*Informe um E-mail valido")
 	@NotBlank(message = "*Email é uma informação obrigatória.")
 	@NotEmpty(message = "*Email é uma informação obrigatória.")
+	@Column(name = "email", nullable = false)
 	private String email;
-	@Column(name = "idade", nullable = false)
 	@NotBlank(message = "*Idade é uma informação obrigatória.")
 	@NotEmpty(message = "*Idade é uma informação obrigatória.")
-	private int idade;
+	@Column(name = "idade", nullable = false)
+	private Integer idade;
 
 	/**
 	 * @return the id
 	 */
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -52,7 +56,7 @@ public class ContatoModel {
 	 * @param id
 	 *            the id to set
 	 */
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -119,7 +123,7 @@ public class ContatoModel {
 	/**
 	 * @return the idade
 	 */
-	public int getIdade() {
+	public Integer getIdade() {
 		return idade;
 	}
 
@@ -127,7 +131,7 @@ public class ContatoModel {
 	 * @param idade
 	 *            the idade to set
 	 */
-	public void setIdade(int idade) {
+	public void setIdade(Integer idade) {
 		this.idade = idade;
 	}
 

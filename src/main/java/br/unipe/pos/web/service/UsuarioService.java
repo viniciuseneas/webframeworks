@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.unipe.pos.web.dao.RoleDAO;
@@ -20,8 +19,8 @@ public class UsuarioService implements UsuarioServiceInterface {
 	private UsuarioDAO usuarioDAO;
 	@Autowired
 	private RoleDAO roleDAO;
-	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
+//	@Autowired
+//	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	/*
 	 * (non-Javadoc)
@@ -58,7 +57,7 @@ public class UsuarioService implements UsuarioServiceInterface {
 	@Override
 	public void save(UsuarioModel usuario) {
 
-		usuario.setSenha(bCryptPasswordEncoder.encode(usuario.getSenha()));
+//		usuario.setSenha(bCryptPasswordEncoder.encode(usuario.getSenha()));
 
 		RoleModel role = roleDAO.findByRole("ADMIN");
 		usuario.setRoles(new HashSet<RoleModel>(Arrays.asList(role)));
@@ -71,7 +70,7 @@ public class UsuarioService implements UsuarioServiceInterface {
 	 * @see br.unipe.pos.web.service.UsuarioServiceInterface#delete(int)
 	 */
 	@Override
-	public void delete(int id) {
+	public void delete(Integer id) {
 		usuarioDAO.delete(id);
 	}
 
@@ -81,7 +80,7 @@ public class UsuarioService implements UsuarioServiceInterface {
 	 * @see br.unipe.pos.web.service.UsuarioServiceInterface#findOne(int)
 	 */
 	@Override
-	public UsuarioModel findOne(int id) {
+	public UsuarioModel findOne(Integer id) {
 
 		UsuarioModel usuario = usuarioDAO.findOne(id);
 

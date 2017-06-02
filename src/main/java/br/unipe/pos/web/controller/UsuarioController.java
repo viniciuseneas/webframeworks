@@ -33,8 +33,12 @@ public class UsuarioController {
 		return "usuario/listar";
 	}
 
-	@RequestMapping("incluir")
-	public String incluir() {
+	@RequestMapping(value = "incluir", method = RequestMethod.GET)
+	public String incluir(Model model) {
+
+		UsuarioModel usuario = new UsuarioModel();
+
+		model.addAttribute("usuario", usuario);
 
 		return "usuario/form-usuario";
 	}
@@ -58,7 +62,7 @@ public class UsuarioController {
 	}
 
 	@RequestMapping("consultar/{id}")
-	public String consultar(@PathVariable(name = "id") int id) {
+	public String consultar(@PathVariable(name = "id") Integer id) {
 
 		UsuarioModel usuario = usuarioService.findOne(id);
 
@@ -71,7 +75,7 @@ public class UsuarioController {
 	}
 
 	@RequestMapping("remover/{id}")
-	public String remover(@PathVariable(name = "id") int id, Model model) {
+	public String remover(@PathVariable(name = "id") Integer id, Model model) {
 
 		usuarioService.delete(id);
 		model.addAttribute("success", "Cadastrado com sucesso!");

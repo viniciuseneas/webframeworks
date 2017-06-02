@@ -12,22 +12,25 @@
 				<div class="form-group">
 					<label for="nome" class="col-lg-2 control-label">Nome</label>
 					<div class="col-lg-10">
-						<input class="form-control" placeholder="Nome" id="nome" name="nome"
-							type="text" required="required" />
+						<input class="form-control" placeholder="Nome" th:id="nome"
+							th:name="nome" type="text" th:errorclass="fieldError"
+							required="required" />
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="email" class="col-lg-2 control-label">Email</label>
 					<div class="col-lg-10">
-						<input class="form-control"  id="email" name="email"
-							placeholder="Email" type="email" required="required" />
+						<input class="form-control" th:id="email" th:name="email"
+							placeholder="Email" type="email" th:errorclass="fieldError"
+							required="required" />
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="senha" class="col-lg-2 control-label">Senha</label>
 					<div class="col-lg-10">
-						<input class="form-control"  id="senha" name="senha"
-							placeholder="Idade" type="password" required="required" />
+						<input class="form-control" th:id="senha" th:name="senha"
+							placeholder="Idade" type="password" th:errorclass="fieldError"
+							required="required" />
 					</div>
 				</div>
 				<div class="form-group">

@@ -5,9 +5,9 @@
 <body>
 	<nav th:replace="fragments/header :: header"></nav>
 	<div class="container">
-		<div
+		<div th:if="{errorMessage}"
 			th:replace="fragments/message :: message (type='danger', message=${errorMessage})"></div>
-		<div
+		<div th:if="{message}"
 			th:replace="fragments/message :: message (type='success', message=${message})"></div>
 		<div id="top" class="row">
 			<div class="col-md-10">

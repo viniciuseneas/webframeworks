@@ -30,7 +30,6 @@ public class ContatoService implements ContatoServiceInterface {
 	 */
 	@Override
 	public void save(ContatoModel contato) {
-
 		contatoDAO.save(contato);
 	}
 
@@ -38,7 +37,7 @@ public class ContatoService implements ContatoServiceInterface {
 	 * Deletar registro
 	 */
 	@Override
-	public void delete(int id) {
+	public void delete(Integer id) {
 		contatoDAO.delete(id);
 	}
 
@@ -46,7 +45,7 @@ public class ContatoService implements ContatoServiceInterface {
 	 * Pesquisar por um registro
 	 */
 	@Override
-	public ContatoModel findOne(int id) {
+	public ContatoModel findOne(Integer id) {
 
 		ContatoModel contato = contatoDAO.findOne(id);
 

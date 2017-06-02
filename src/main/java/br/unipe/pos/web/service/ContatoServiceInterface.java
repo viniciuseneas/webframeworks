@@ -10,8 +10,8 @@ public interface ContatoServiceInterface {
 
 	public void save(ContatoModel contato);
 
-	public void delete(int id);
+	public void delete(Integer id);
 
-	public ContatoModel findOne(int id);
+	public ContatoModel findOne(Integer id);
 
 }

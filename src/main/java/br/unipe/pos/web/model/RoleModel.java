@@ -1,5 +1,7 @@
 package br.unipe.pos.web.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,10 +11,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "roles")
-public class RoleModel {
+public class RoleModel implements Serializable{
+	
+	static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "role_id")
 	private Integer id;
 	@Column(name = "type")

@@ -16,34 +16,34 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 @Table(name = "contato")
 public class ContatoModel implements Serializable {
-	
+
 	public static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "contact_id")
 	private Integer id;
-	@NotBlank(message = "*Nome é uma informação obrigatória.")
-	@NotEmpty(message = "*Nome é uma informação obrigatória.")
+	@NotBlank
+	@NotEmpty
 	@Column(name = "nome", nullable = false)
 	private String nome;
-	@NotBlank(message = "*Sobrenome é uma informação obrigatória.")
-	@NotEmpty(message = "*Sobrenome é uma informação obrigatória.")
+	@NotBlank
+	@NotEmpty
 	@Column(name = "sobrenome", nullable = false)
 	private String sobreNome;
-	@NotBlank(message = "*Telefone é uma informação obrigatória.")
-	@NotEmpty(message = "*Telefone é uma informação obrigatória.")
+	@NotBlank
+	@NotEmpty
 	@Column(name = "telefone", nullable = false)
 	private String telefone;
-	@Email(message = "*Informe um E-mail valido")
-	@NotBlank(message = "*Email é uma informação obrigatória.")
-	@NotEmpty(message = "*Email é uma informação obrigatória.")
+	@Email
+	@NotBlank
+	@NotEmpty
 	@Column(name = "email", nullable = false)
 	private String email;
-	@NotBlank(message = "*Idade é uma informação obrigatória.")
-	@NotEmpty(message = "*Idade é uma informação obrigatória.")
+	@NotBlank
+	@NotEmpty
 	@Column(name = "idade", nullable = false)
-	private Integer idade;
+	private String idade;
 
 	/**
 	 * @return the id
@@ -123,7 +123,7 @@ public class ContatoModel implements Serializable {
 	/**
 	 * @return the idade
 	 */
-	public Integer getIdade() {
+	public String getIdade() {
 		return idade;
 	}
 
@@ -131,8 +131,14 @@ public class ContatoModel implements Serializable {
 	 * @param idade
 	 *            the idade to set
 	 */
-	public void setIdade(Integer idade) {
+	public void setIdade(String idade) {
 		this.idade = idade;
 	}
 
+	@Override
+	public String toString() {
+
+		return "Contato{" + id + ", nome=" + nome + ", sobreNome= " + sobreNome + ", email=" + email + ", telefone="
+				+ telefone + ", idade=" + idade + "}";
+	}
 }

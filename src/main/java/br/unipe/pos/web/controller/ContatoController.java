@@ -57,11 +57,11 @@ public class ContatoController {
 		model.addAttribute("type", "success");
 		model.addAttribute("message", "Cadastrado com sucesso!");
 
-		return "redirect:contato/listar";
+		return "redirect:/contato/listar";
 
 	}
 
-	@RequestMapping("consultar/{id}")
+	@RequestMapping(name = "editar/{id}", method = RequestMethod.GET)
 	public String consultar(@PathVariable(name = "id") Integer id) {
 
 		ContatoModel contato = contatoService.findOne(id);
@@ -73,12 +73,21 @@ public class ContatoController {
 		return "Sem resultado";
 
 	}
+	
+	@RequestMapping(name = "editar/{id}", method = RequestMethod.POST)
+	public String editar(@PathVariable(name = "id") Integer id) {
 
-	@RequestMapping("remover/{id}")
-	public String remover(@PathVariable(name = "id") Integer id, Model model) {
+		
+		return "redirect:/contato/listar";
+
+	}
+
+	@RequestMapping("excluir/{id}")
+	public String remover(@PathVariable Integer id, Model model) {
 
 		contatoService.delete(id);
-		model.addAttribute("success", "Cadastrado com sucesso!");
+
+		model.addAttribute("message", "Removido com sucesso!");
 
 		return "redirect:/contato/listar";
 

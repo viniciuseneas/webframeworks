@@ -5,9 +5,9 @@
 <body>
 	<nav th:replace="fragments/header :: header"></nav>
 	<div class="container">
-		<div th:if="{errorMessage}"
+		<div th:if="${errorMessage}"
 			th:replace="fragments/message :: message (type='danger', message=${errorMessage})"></div>
-		<div th:if="{message}"
+		<div th:if="${message}"
 			th:replace="fragments/message :: message (type='success', message=${message})"></div>
 		<div id="top" class="row">
 			<div class="col-md-10">
@@ -43,10 +43,10 @@
 							<td th:text="${contato.idade}"></td>
 							<td th:text="${contato.telefone}"></td>
 							<td th:align="center"><a href=""
-								th:href="@{/contato/editar/(id=${contato.id})}"
+								th:href="@{/contato/editar/{id}(id = ${contato.id})}"
 								class="btn btn-box-tool bg-blue" title="Visualizar"
 								data-toggle="tooltip"> <i class="glyphicon glyphicon-edit"></i>
-							</a> <a href="" th:href="@{/contato/excluir/(id=${contato.id})}"
+							</a> <a href="" th:href="@{/contato/excluir/{id}(id = ${contato.id})}"
 								class="btn btn-box-tool bg-red" data-toggle="tooltip"
 								title="Excluir"
 								onclick="return confirm('Tem certeza que deseja excluir?')">

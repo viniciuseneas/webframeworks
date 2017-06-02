@@ -1,5 +1,6 @@
 package br.unipe.pos.web.model;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -18,9 +19,13 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Transient;
 
+import br.unipe.pos.web.model.RoleModel;
+
 @Entity
 @Table(name = "user")
-public class UsuarioModel {
+public class UsuarioModel implements Serializable {
+
+	static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

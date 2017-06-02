@@ -9,6 +9,8 @@ public interface ContatoServiceInterface {
 	public List<ContatoModel> findAll();
 
 	public void save(ContatoModel contato);
+	
+	public void update(ContatoModel contato);
 
 	public void delete(Integer id);
 

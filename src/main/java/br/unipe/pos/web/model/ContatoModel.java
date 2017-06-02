@@ -138,7 +138,7 @@ public class ContatoModel implements Serializable {
 	@Override
 	public String toString() {
 
-		return "Contato{" + id + ", nome=" + nome + ", sobreNome= " + sobreNome + ", email=" + email + ", telefone="
+		return "Contato{id=" + id + ", nome=" + nome + ", sobreNome=" + sobreNome + ", email=" + email + ", telefone="
 				+ telefone + ", idade=" + idade + "}";
 	}
 }

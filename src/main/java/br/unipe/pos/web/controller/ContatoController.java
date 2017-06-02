@@ -61,21 +61,22 @@ public class ContatoController {
 
 	}
 
-	@RequestMapping(name = "editar/{id}", method = RequestMethod.GET)
-	public String consultar(@PathVariable(name = "id") Integer id) {
+	@RequestMapping(value = "editar/{id}", method = RequestMethod.GET)
+	public String consultar(@PathVariable Integer id, Model model) {
 
 		ContatoModel contato = contatoService.findOne(id);
+		
+		contatoService.save(contato);
+		
+		model.addAttribute("contato", contato);
+		
 
-		if (contato != null) {
-			return contato.toString();
-		}
-
-		return "Sem resultado";
+		return "contato/editar";
 
 	}
 	
-	@RequestMapping(name = "editar/{id}", method = RequestMethod.POST)
-	public String editar(@PathVariable(name = "id") Integer id) {
+	@RequestMapping(value = "editar/{id}", method = RequestMethod.POST)
+	public String editar(@PathVariable Integer id) {
 
 		
 		return "redirect:/contato/listar";

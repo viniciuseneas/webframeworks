@@ -51,4 +51,9 @@ public class ContatoService implements ContatoServiceInterface {
 
 		return contato;
 	}
+
+	@Override
+	public void update(ContatoModel contato) {
+		contatoDAO.update(contato);
+	}
 }

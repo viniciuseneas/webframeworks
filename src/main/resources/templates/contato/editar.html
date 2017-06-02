@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head th:replace="fragments/commom_header :: commonHeader"></head>
+<body>
+	<nav th:replace="fragments/header :: header"></nav>
+	<div id="main" class="container">
+		<div class="row">
+			<h3 class="page-header">Editar Contato</h3>
+			<form class="form-horizontal" th:action="@{/contato/editar}"
+				th:object="${contato}" method="POST">
+				<input type="hidden" th:value="${contato.id}"
+					th:name="${contato.id}" th:id="${contato.id}" />
+				<div class="form-group">
+					<label for="nome" class="col-lg-2 control-label">Nome</label>
+					<div class="col-lg-10">
+						<input class="form-control" placeholder="Nome" th:id="nome"
+							th:value="${contato.nome}"
+							th:name="nome" type="text"
+							th:errorclass="fieldError" required="required" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="sobreNome" class="col-lg-2 control-label">Sobrenome</label>
+					<div class="col-lg-10">
+						<input class="form-control" th:id="sobreNome" th:name="sobreNome"
+							th:value="${contato.sobreNome}"
+							placeholder="
+							Sobrenome" type="text" th:errorclass="fieldError"
+							required="required" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="email" class="col-lg-2 control-label">Email</label>
+					<div class="col-lg-10">
+						<input class="form-control" th:id="email" th:name="email"
+							th:value="${contato.email}"
+							placeholder="
+							Email" type="email" th:errorclass="fieldError"
+							required="required" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="idade" class="col-lg-2 control-label">Idade</label>
+					<div class="col-lg-10">
+						<input class="form-control" th:id="idade" th:name="idade"
+							th:value="${contato.idade}"
+							placeholder="
+							Idade" type="text" th:errorclass="fieldError" required="required" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="telefone" class="col-lg-2 control-label">Telefone</label>
+					<div class="col-lg-10">
+						<input class="form-control" th:id="telefone" th:name="telefone"
+							th:value="${contato.telefone}"
+							placeholder="
+							Telefone" type="text" th:errorclass="fieldError"
+							required="required" />
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-lg-10 col-lg-offset-2">
+						<a href="" th:href="@{/contato/listar}" class="btn btn-danger">Voltar</a>
+						<button type="submit" class="btn btn-primary">Enviar</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

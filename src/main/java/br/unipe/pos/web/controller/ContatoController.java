@@ -65,20 +65,29 @@ public class ContatoController {
 	public String consultar(@PathVariable Integer id, Model model) {
 
 		ContatoModel contato = contatoService.findOne(id);
-		
-		contatoService.save(contato);
-		
+
 		model.addAttribute("contato", contato);
-		
 
 		return "contato/editar";
-
 	}
-	
-	@RequestMapping(value = "editar/{id}", method = RequestMethod.POST)
-	public String editar(@PathVariable Integer id) {
 
-		
+	@RequestMapping(value = "editar/{id}", method = RequestMethod.POST)
+	public String editar(@PathVariable Integer id, BindingResult result, Model model) {
+
+		if (result.hasErrors()) {
+			model.addAttribute("type", "error");
+			model.addAttribute("errorMessage", "Erro ao tentar cadastrar!");
+
+			return "contato/editar";
+		}
+
+		ContatoModel contato = contatoService.findOne(id);
+
+		contatoService.save(contato);
+
+		model.addAttribute("type", "success");
+		model.addAttribute("message", "Cadastrado com sucesso!");
+
 		return "redirect:/contato/listar";
 
 	}

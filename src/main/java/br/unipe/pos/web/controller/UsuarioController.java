@@ -61,27 +61,59 @@ public class UsuarioController {
 
 	}
 
-	@RequestMapping("consultar/{id}")
-	public String consultar(@PathVariable(name = "id") Integer id) {
+	@RequestMapping(value = "editar/{id}", method = RequestMethod.GET)
+	public String consultar(@PathVariable Integer id, Model model) {
 
 		UsuarioModel usuario = usuarioService.findOne(id);
 
-		if (usuario != null) {
-			return usuario.toString();
+		model.addAttribute("usuario", usuario);
+
+		return "usuario/editar";
+	}
+
+	@RequestMapping(value = "editar/{id}", method = RequestMethod.POST)
+	public String editar(@PathVariable Integer id, BindingResult result, Model model) {
+
+		if (result.hasErrors()) {
+			model.addAttribute("type", "error");
+			model.addAttribute("errorMessage", "Erro ao tentar editar!");
+
+			return "usuario/editar";
 		}
 
-		return "Sem resultado";
+		UsuarioModel usuario = usuarioService.findOne(id);
 
+		usuarioService.save(usuario);
+
+		model.addAttribute("type", "success");
+		model.addAttribute("message", "Editado com sucesso!");
+
+		return "redirect:/usuario/listar";
 	}
 
 	@RequestMapping("remover/{id}")
-	public String remover(@PathVariable(name = "id") Integer id, Model model) {
+	public String remover(@PathVariable Integer id, Model model) {
 
 		usuarioService.delete(id);
 		model.addAttribute("success", "Cadastrado com sucesso!");
 
 		return "redirect:/usuario/listar";
 
+	}
+
+	/**
+	 * @return the usuarioService
+	 */
+	public UsuarioService getUsuarioService() {
+		return usuarioService;
+	}
+
+	/**
+	 * @param usuarioService
+	 *            the usuarioService to set
+	 */
+	public void setUsuarioService(UsuarioService usuarioService) {
+		this.usuarioService = usuarioService;
 	}
 
 }

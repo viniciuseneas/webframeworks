@@ -5,9 +5,9 @@
 <body>
 	<nav th:replace="fragments/header :: header"></nav>
 	<div class="container">
-		<div
+		<div th:if="${errorMessage}"
 			th:replace="fragments/message :: message (type='danger', message=${errorMessage})"></div>
-		<div
+		<div th:if="${message}"
 			th:replace="fragments/message :: message (type='success', message=${message})"></div>
 		<div id="top" class="row">
 			<div class="col-md-10">
@@ -37,10 +37,10 @@
 							<td th:text="${usuario.nome}"></td>
 							<td th:text="${usuario.email}"></td>
 							<td th:align="center"><a href=""
-								th:href="@{/usuario/editar/(id=${usuario.id})}"
+								th:href="@{/usuario/editar/{id}(id=${usuario.id})}"
 								class="btn btn-box-tool bg-blue" title="Visualizar"
 								data-toggle="tooltip"> <i class="glyphicon glyphicon-edit"></i>
-							</a> <a href="" th:href="@{/usuario/excluir/(id=${usuario.id})}"
+							</a> <a href="" th:href="@{/usuario/excluir/{id}(id=${usuario.id})}"
 								class="btn btn-box-tool bg-red" data-toggle="tooltip"
 								title="Excluir"
 								onclick="return confirm('Tem certeza que deseja excluir?')">

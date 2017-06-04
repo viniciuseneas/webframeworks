@@ -6,31 +6,34 @@
 	<nav th:replace="fragments/header :: header"></nav>
 	<div id="main" class="container">
 		<div class="row">
-			<h3 class="page-header">Cadastrar Usuário</h3>
-			<form class="form-horizontal" th:action="@{/usuario/incluir}"
+			<h3 class="page-header">Editar Usuário</h3>
+			<form class="form-horizontal" th:action="@{/usuario/editar}"
 				th:object="${usuario}" method="POST">
+				<input type="hidden" th:value="${usuario.id}"
+					th:name="${usuario.id}" th:id="${usuario.id}" />
 				<div class="form-group">
 					<label for="nome" class="col-lg-2 control-label">Nome</label>
 					<div class="col-lg-10">
 						<input class="form-control" placeholder="Nome" th:id="nome"
-							th:name="nome" type="text" th:errorclass="fieldError"
-							required="required" />
+							th:value="${usuario.nome}" th:name="nome" type="text"
+							th:errorclass="fieldError" required="required" />
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="email" class="col-lg-2 control-label">Email</label>
 					<div class="col-lg-10">
 						<input class="form-control" th:id="email" th:name="email"
-							placeholder="Email" type="email" th:errorclass="fieldError"
-							required="required" />
+							th:value="${usuario.email}" placeholder="
+							Email"
+							type="email" th:errorclass="fieldError" required="required" />
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="senha" class="col-lg-2 control-label">Senha</label>
 					<div class="col-lg-10">
 						<input class="form-control" th:id="senha" th:name="senha"
-							placeholder="Senha" type="password" th:errorclass="fieldError"
-							required="required" />
+							placeholder="senha" type="password"
+							th:errorclass="fieldError" required="required" />
 					</div>
 				</div>
 				<div class="form-group">

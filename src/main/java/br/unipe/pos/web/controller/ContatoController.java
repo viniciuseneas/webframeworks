@@ -76,7 +76,7 @@ public class ContatoController {
 
 		if (result.hasErrors()) {
 			model.addAttribute("type", "error");
-			model.addAttribute("errorMessage", "Erro ao tentar cadastrar!");
+			model.addAttribute("errorMessage", "Erro ao tentar editar!");
 
 			return "contato/editar";
 		}
@@ -86,7 +86,7 @@ public class ContatoController {
 		contatoService.save(contato);
 
 		model.addAttribute("type", "success");
-		model.addAttribute("message", "Cadastrado com sucesso!");
+		model.addAttribute("message", "Editado com sucesso!");
 
 		return "redirect:/contato/listar";
 

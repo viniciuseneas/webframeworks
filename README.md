@@ -30,8 +30,19 @@ Maven
 
 MySQL
 
-- INSERT INTO `roles`(`role_id`, `type`) VALUES (1, "ADMIN");
-- INSERT INTO `roles`(`role_id`, `type`) VALUES (2, "USER");
+Executar as querys abaixo.
+
+Usuário.: admin Senha.: abc125
+
+- User
+
+INSERT INTO app_user(nome, email, password, ativo )
+VALUES ('Vinícius','vinicius.eneas@gmail.com','$2a$10$4eqIF5s/ewJwHK1p8lqlFOEm2QIA0S8g6./Lok.pQxqcxaBZYChRm', true);
+
+- Roles
+
+INSERT INTO `roles`(`role_id`, `type`) VALUES (1, "ADMIN");
+INSERT INTO `roles`(`role_id`, `type`) VALUES (2, "USER");
 
 License
 

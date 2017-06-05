@@ -10,6 +10,8 @@ Projeto para a Pós Graduação Desenvolvimento de Aplicações para WEB Webfram
 
 -Nélio Frazão
 
+----------
+
 ### Tecnologias
 | Back-End | Front-End |
 | ------ | ------ |
@@ -31,19 +33,25 @@ Maven
 MySQL
 
 Executar as querys abaixo.
+-------------
 
 Usuário.: admin Senha.: abc125
 
-- User
-
+>User
+```
 INSERT INTO app_user(nome, email, password, ativo )
 VALUES ('Vinícius','vinicius.eneas@gmail.com','$2a$10$4eqIF5s/ewJwHK1p8lqlFOEm2QIA0S8g6./Lok.pQxqcxaBZYChRm', true);
-
-- Roles
-
-INSERT INTO `roles`(`role_id`, `type`) VALUES (1, "ADMIN");
-INSERT INTO `roles`(`role_id`, `type`) VALUES (2, "USER");
-
+```
+>Roles
+```
+INSERT INTO roles(role_id, type) VALUES (1, "ADMIN");
+INSERT INTO roles(role_id, type) VALUES (2, "USER");
+```
+>Atribuindo permissão
+```
+INSERT INTO user_has_roles (user_id, role_id) VALUES (1,1);
+```
 License
+-------------
 
 - GPL

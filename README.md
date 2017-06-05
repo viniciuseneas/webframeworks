@@ -35,7 +35,7 @@ MySQL
 Executar as querys abaixo.
 -------------
 
-Usuário.: admin Senha.: abc125
+Usuário.: vinicius.eneas@gmail.com Senha.: abc125
 
 >User
 ```

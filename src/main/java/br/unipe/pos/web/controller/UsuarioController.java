@@ -17,7 +17,7 @@ import br.unipe.pos.web.model.UsuarioModel;
 import br.unipe.pos.web.service.UsuarioService;
 
 @Controller
-@RequestMapping("usuario")
+@RequestMapping("/painel/usuario")
 public class UsuarioController {
 
 	@Autowired
@@ -46,6 +46,15 @@ public class UsuarioController {
 	@RequestMapping(value = "incluir", method = RequestMethod.POST)
 	public String salvar(@Valid @ModelAttribute("usuario") UsuarioModel usuario, BindingResult result, Model model) {
 
+		UsuarioModel usuarioExiste = usuarioService.findUserByEmail(usuario.getEmail());
+		
+		if (usuarioExiste != null) {
+			model.addAttribute("type", "error");
+			model.addAttribute("message", "E-mail existente, favor digitar outro!");
+
+			return "usuario/form-usuario";
+		}
+		
 		if (result.hasErrors()) {
 			model.addAttribute("type", "error");
 			model.addAttribute("message", "Erro ao tentar cadastrar!");

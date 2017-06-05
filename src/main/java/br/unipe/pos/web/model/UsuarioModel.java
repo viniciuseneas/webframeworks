@@ -25,7 +25,7 @@ import br.unipe.pos.web.model.RoleModel;
 @Table(name = "user")
 public class UsuarioModel implements Serializable {
 
-	static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,6 +43,8 @@ public class UsuarioModel implements Serializable {
 	@Transient
 	@Column(name = "senha")
 	private String senha;
+	@Column(name = "ativo")
+	private boolean ativo;
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_has_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<RoleModel> roles;
@@ -105,6 +107,20 @@ public class UsuarioModel implements Serializable {
 	 */
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	/**
+	 * @return the ativo
+	 */
+	public boolean isAtivo() {
+		return ativo;
+	}
+
+	/**
+	 * @param ativo the ativo to set
+	 */
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
 	}
 
 	/**

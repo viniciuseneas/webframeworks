@@ -11,9 +11,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "roles")
-public class RoleModel implements Serializable{
-	
-	static final long serialVersionUID = 1L;
+public class RoleModel implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,5 +51,4 @@ public class RoleModel implements Serializable{
 	public void setRole(String role) {
 		this.role = role;
 	}
-
 }

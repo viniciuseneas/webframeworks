@@ -17,7 +17,7 @@ import br.unipe.pos.web.model.ContatoModel;
 import br.unipe.pos.web.service.ContatoService;
 
 @Controller
-@RequestMapping("/contato")
+@RequestMapping("/painel/contato")
 public class ContatoController {
 
 	@Autowired

@@ -30,6 +30,9 @@ Maven
 
 MySQL
 
+- INSERT INTO `roles`(`role_id`, `type`) VALUES (1, "ADMIN");
+- INSERT INTO `roles`(`role_id`, `type`) VALUES (2, "USER");
+
 License
 
 - GPL
